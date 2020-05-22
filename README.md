@@ -17,6 +17,15 @@ Negative numbers can be represented in three different ways:
 Most modern systems use *two's complement* to represent negative numbers.
 
 
+The core piece of the code is `(-1 & 3)` which returns different results
+on different CPUs for the respective representations of negative numbers.
+It returns
+
+  * `1` if an *algebraic sign bit* is used,
+  * `2` if *one's complement* is used, and
+  * `3` if *two's complement* is used.
+
+
 ## Build and Execution
 
 The code can be built using the provided *Makefile* by simply executing
@@ -42,6 +51,14 @@ with status code `0` (*success*).
 
 In the unlikely case that the operation fails, "`operation failed`" is
 printed to `STDOUT`, and `negative` exits with status code `1` (*failure*).
+
+
+## Compatibility
+
+`negative` is written in plain ANSI C and has no dependencies.
+
+It is cross platform compatible and can be compiled at least under
+Linux, Solaris, MacOS, and Windows.
 
 
 ## Copyright
